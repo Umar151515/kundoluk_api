@@ -1,0 +1,7 @@
+__pycache__/
+data/
+.env
+google_sheets_key.json
+venv/
+*test*
+result.txt
