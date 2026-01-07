@@ -57,7 +57,7 @@ class QuarterMarksResults:
         all_marks = []
         for result in self.results:
             if result and result.quarter_marks:
-                all_marks.extend(result.quarter_marks.marks)
+                all_marks.extend(result.quarter_marks.quarter_marks)
         
         return QuarterMarks(all_marks)
     
@@ -73,11 +73,11 @@ class QuarterMarksResults:
         
         all_marks = self.get_all_quarter_marks()
         
-        if not all_marks.marks:
+        if not all_marks.quarter_marks:
             return "Нет оценок"
         
         subject_grades = {}
-        for mark in all_marks.marks:
+        for mark in all_marks.quarter_marks:
             subject = mark.subject_name_ru or mark.subject_name_kg or "Неизвестный"
             if subject not in subject_grades:
                 subject_grades[subject] = {}
@@ -91,7 +91,7 @@ class QuarterMarksResults:
             elif mark.custom_mark:
                 subject_grades[subject][quarter].append(mark.custom_mark)
         
-        lines = [f"Всего оценок: {len(all_marks.marks)}"]
+        lines = [f"Всего оценок: {len(all_marks.quarter_marks)}"]
         
         for subject, quarters in sorted(subject_grades.items()):
             quarter_strs = []
