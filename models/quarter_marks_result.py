@@ -40,7 +40,7 @@ class QuarterMarksResult:
         )
     
     def __repr__(self) -> str:
-        count = len(self.quarter_marks.marks) if self.quarter_marks else 0
+        count = len(self.quarter_marks.quarter_marks) if self.quarter_marks else 0
         return f"QuarterMarksResult(teacher={self.teacher!r}, marks_count={count})"
 
     def __str__(self) -> str:
